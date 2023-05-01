@@ -1,7 +1,7 @@
 import {createSlice } from '@reduxjs/toolkit';
 
 let initialState = {
-    value:1
+    value:0
 }
 
 export const userSlice = createSlice({
@@ -14,10 +14,13 @@ export const userSlice = createSlice({
         
         decrement: (state)=>{
             state.value -=1;
+        },
+        incrementByamount:(state,action)=>{
+            state.value += Number(action.payload)
         }
     }
 })
 
 
-export const {increment,decrement} = userSlice.actions;
+export const {increment,decrement,incrementByamount} = userSlice.actions;
 export default userSlice.reducer;
